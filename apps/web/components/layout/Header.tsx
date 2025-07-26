@@ -4,11 +4,24 @@ import Link from 'next/link'
 import { useState } from 'react'
 import { useSession, signOut } from 'next-auth/react'
 import { useTranslations } from 'next-intl'
+import { useSupabase } from '@/providers/supabase-provider'
+import { useRouter } from 'next/navigation'
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const { data: session, status } = useSession()
   const t = useTranslations('header')
+  const { supabase, user } = useSupabase()
+  const router = useRouter()
+
+  const handleSignOut = async () => {
+    if (user) {
+      await supabase.auth.signOut()
+      router.push('/')
+    } else if (session) {
+      await signOut()
+    }
+  }
 
   return (
     <header className="sticky top-0 z-50 bg-white border-b border-gray-200">
@@ -36,11 +49,11 @@ export default function Header() {
           <div className="hidden md:flex items-center space-x-4">
             {status === 'loading' ? (
               <div className="text-gray-400">Loading...</div>
-            ) : session ? (
+            ) : session || user ? (
               <div className="flex items-center gap-4">
-                <span className="text-sm text-gray-700">{session.user?.name}</span>
+                <span className="text-sm text-gray-700">{session?.user?.name || user?.email}</span>
                 <button
-                  onClick={() => signOut()}
+                  onClick={handleSignOut}
                   className="text-sm text-gray-500 hover:text-gray-700"
                 >
                   {t('logout')}
@@ -111,11 +124,11 @@ export default function Header() {
                 {t('myAccount')}
               </Link>
               <div className="pt-3 border-t border-gray-200 space-y-3">
-                {session ? (
+                {session || user ? (
                   <>
-                    <div className="text-sm text-gray-700 py-2">{session.user?.name}</div>
+                    <div className="text-sm text-gray-700 py-2">{session?.user?.name || user?.email}</div>
                     <button
-                      onClick={() => signOut()}
+                      onClick={handleSignOut}
                       className="text-sm text-gray-500 hover:text-gray-700 py-2"
                     >
                       {t('logout')}

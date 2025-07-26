@@ -6,6 +6,7 @@ import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import { AuthProvider } from '@/providers/auth-provider'
 import { IntlProvider } from '@/providers/intl-provider'
+import SupabaseProvider from '@/providers/supabase-provider'
 import './globals.css'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -46,15 +47,17 @@ export default async function RootLayout({
     <html lang={locale}>
       <body className={inter.className}>
         <IntlProvider messages={messages} locale={locale}>
-          <AuthProvider>
-            <div className="min-h-screen flex flex-col">
-              <Header />
-              <main className="flex-grow">
-                {children}
-              </main>
-              <Footer />
-            </div>
-          </AuthProvider>
+          <SupabaseProvider>
+            <AuthProvider>
+              <div className="min-h-screen flex flex-col">
+                <Header />
+                <main className="flex-grow">
+                  {children}
+                </main>
+                <Footer />
+              </div>
+            </AuthProvider>
+          </SupabaseProvider>
         </IntlProvider>
       </body>
     </html>

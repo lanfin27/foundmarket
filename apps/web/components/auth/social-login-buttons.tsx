@@ -1,12 +1,36 @@
 'use client'
 
-import { signIn } from 'next-auth/react'
+import { createClient } from '@/lib/supabase/client'
+import { useRouter } from 'next/navigation'
 
 interface SocialLoginButtonsProps {
   mode?: 'login' | 'register'
 }
 
 export function SocialLoginButtons({ mode = 'login' }: SocialLoginButtonsProps) {
+  const router = useRouter()
+  const supabase = createClient()
+
+  const handleSocialLogin = async (provider: 'google' | 'kakao') => {
+    try {
+      const { error } = await supabase.auth.signInWithOAuth({
+        provider: provider === 'kakao' ? 'kakao' : 'google',
+        options: {
+          redirectTo: `${window.location.origin}/auth/callback`,
+          queryParams: {
+            access_type: 'offline',
+            prompt: 'consent',
+          },
+        },
+      })
+      
+      if (error) {
+        console.error('OAuth error:', error)
+      }
+    } catch (error) {
+      console.error('Social login error:', error)
+    }
+  }
   return (
     <div className="space-y-4">
       <div className="relative">
@@ -24,7 +48,7 @@ export function SocialLoginButtons({ mode = 'login' }: SocialLoginButtonsProps) 
         {/* Google */}
         <button
           type="button"
-          onClick={() => signIn('google')}
+          onClick={() => handleSocialLogin('google')}
           className="relative w-full inline-flex justify-center items-center py-3 px-4 border border-gray-300 rounded-lg shadow-sm bg-white hover:bg-gray-50 transition"
           aria-label="Google로 로그인"
         >
@@ -52,9 +76,11 @@ export function SocialLoginButtons({ mode = 'login' }: SocialLoginButtonsProps) 
         {/* Naver */}
         <button
           type="button"
-          onClick={() => signIn('naver')}
-          className="relative w-full inline-flex justify-center items-center py-3 px-4 bg-[#03C75A] hover:bg-[#02b351] text-white font-medium rounded-lg shadow-sm transition"
+          onClick={() => {/* Naver OAuth not supported by Supabase */}}
+          disabled
+          className="relative w-full inline-flex justify-center items-center py-3 px-4 bg-gray-300 text-white font-medium rounded-lg shadow-sm cursor-not-allowed"
           aria-label="네이버로 로그인"
+          title="네이버 로그인은 준비 중입니다"
         >
           <span className="text-white font-bold text-xl">N</span>
           <span className="sr-only">네이버</span>
@@ -63,7 +89,7 @@ export function SocialLoginButtons({ mode = 'login' }: SocialLoginButtonsProps) 
         {/* Kakao */}
         <button
           type="button"
-          onClick={() => signIn('kakao')}
+          onClick={() => handleSocialLogin('kakao')}
           className="relative w-full inline-flex justify-center items-center py-3 px-4 bg-[#FEE500] hover:bg-[#fdd800] rounded-lg shadow-sm transition"
           aria-label="카카오로 로그인"
         >
