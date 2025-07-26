@@ -1,0 +1,137 @@
+{
+  "header": {
+    "browse": "매물 둘러보기",
+    "sell": "매물 등록",
+    "howItWorks": "이용 방법",
+    "pricing": "가격",
+    "search": "검색",
+    "login": "로그인",
+    "signup": "회원가입",
+    "myAccount": "내 계정",
+    "dashboard": "대시보드",
+    "logout": "로그아웃"
+  },
+  "hero": {
+    "title": "원클릭 매물 등록, 국세청 재무연동으로 더 믿을 수 있게",
+    "subtitle": "클릭 한 번으로 매물 등록, 자동으로 불러오는 재무정보로 거래의 신뢰를 높였습니다.",
+    "cta": {
+      "browse": "매물 둘러보기",
+      "sell": "무료로 시작하기"
+    }
+  },
+  "features": {
+    "title": "파운드마켓이 특별한 이유",
+    "oneClick": {
+      "title": "원클릭 매물 등록",
+      "description": "복잡한 절차 없이 클릭 한 번으로 매물을 등록하세요"
+    },
+    "taxIntegration": {
+      "title": "국세청 재무정보 연동",
+      "description": "실시간 재무정보로 투명하고 신뢰할 수 있는 거래"
+    },
+    "verification": {
+      "title": "검증된 매물",
+      "description": "모든 매물은 철저한 검증 과정을 거쳐 등록됩니다"
+    },
+    "secure": {
+      "title": "안전한 거래",
+      "description": "에스크로 서비스로 안전한 거래를 보장합니다"
+    }
+  },
+  "stats": {
+    "registeredAssets": "등록된 매물",
+    "successfulDeals": "성사된 거래",
+    "activeUsers": "활성 사용자",
+    "totalValue": "총 거래 금액"
+  },
+  "categories": {
+    "all": "전체",
+    "website": "웹사이트",
+    "app": "앱",
+    "ecommerce": "이커머스",
+    "saas": "SaaS",
+    "content": "콘텐츠",
+    "other": "기타"
+  },
+  "filters": {
+    "category": "카테고리",
+    "priceRange": "가격대",
+    "revenue": "매출",
+    "profit": "수익",
+    "sortBy": "정렬 기준",
+    "newest": "최신순",
+    "priceLowHigh": "가격 낮은순",
+    "priceHighLow": "가격 높은순",
+    "mostViewed": "조회수 높은순"
+  },
+  "assetCard": {
+    "monthlyRevenue": "월 매출",
+    "monthlyProfit": "월 수익",
+    "askingPrice": "희망 가격",
+    "viewDetails": "상세보기",
+    "verified": "검증됨",
+    "featured": "추천"
+  },
+  "footer": {
+    "company": "회사",
+    "about": "회사 소개",
+    "careers": "채용",
+    "press": "언론보도",
+    "contact": "문의하기",
+    "support": "지원",
+    "help": "도움말",
+    "terms": "이용약관",
+    "privacy": "개인정보처리방침",
+    "security": "보안",
+    "product": "제품",
+    "features": "기능",
+    "pricing": "가격",
+    "blog": "블로그",
+    "api": "API",
+    "connect": "연결",
+    "copyright": "© 2024 파운드마켓. All rights reserved."
+  },
+  "auth": {
+    "loginTitle": "로그인",
+    "signupTitle": "회원가입",
+    "email": "이메일",
+    "password": "비밀번호",
+    "confirmPassword": "비밀번호 확인",
+    "forgotPassword": "비밀번호를 잊으셨나요?",
+    "rememberMe": "로그인 상태 유지",
+    "loginButton": "로그인",
+    "signupButton": "회원가입",
+    "orContinueWith": "또는 다음으로 계속하기",
+    "googleLogin": "Google로 로그인",
+    "kakaoLogin": "카카오로 로그인",
+    "naverLogin": "네이버로 로그인",
+    "alreadyHaveAccount": "이미 계정이 있으신가요?",
+    "dontHaveAccount": "계정이 없으신가요?",
+    "loginLink": "로그인하기",
+    "signupLink": "회원가입하기"
+  },
+  "forms": {
+    "required": "필수 항목입니다",
+    "invalidEmail": "올바른 이메일 주소를 입력해주세요",
+    "passwordMin": "비밀번호는 최소 8자 이상이어야 합니다",
+    "passwordMatch": "비밀번호가 일치하지 않습니다",
+    "submit": "제출",
+    "cancel": "취소",
+    "save": "저장",
+    "delete": "삭제",
+    "edit": "수정"
+  },
+  "common": {
+    "loading": "로딩 중...",
+    "error": "오류가 발생했습니다",
+    "success": "성공적으로 완료되었습니다",
+    "retry": "다시 시도",
+    "back": "뒤로 가기",
+    "next": "다음",
+    "previous": "이전",
+    "search": "검색",
+    "noResults": "검색 결과가 없습니다",
+    "showMore": "더 보기",
+    "showLess": "접기"
+  }
+}
