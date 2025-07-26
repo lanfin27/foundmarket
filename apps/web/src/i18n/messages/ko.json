@@ -1,0 +1,22 @@
+{
+  "greeting": "파운드마켓에 오신 것을 환영합니다",
+  "login": "로그인",
+  "logout": "로그아웃",
+  "signup": "회원가입",
+  "welcome": "{name}님, 반갑습니다!",
+  "dashboard": {
+    "title": "대시보드",
+    "overview": "개요",
+    "myAssets": "내 자산",
+    "myBids": "내 입찰"
+  },
+  "common": {
+    "save": "저장",
+    "cancel": "취소",
+    "delete": "삭제",
+    "edit": "수정",
+    "loading": "로딩 중...",
+    "error": "오류가 발생했습니다",
+    "success": "성공!"
+  }
+}

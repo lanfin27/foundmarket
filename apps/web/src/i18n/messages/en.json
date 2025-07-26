@@ -1,0 +1,22 @@
+{
+  "greeting": "Welcome to FoundMarket",
+  "login": "Login",
+  "logout": "Logout",
+  "signup": "Sign Up",
+  "welcome": "Welcome back, {name}!",
+  "dashboard": {
+    "title": "Dashboard",
+    "overview": "Overview",
+    "myAssets": "My Assets",
+    "myBids": "My Bids"
+  },
+  "common": {
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "success": "Success!"
+  }
+}
