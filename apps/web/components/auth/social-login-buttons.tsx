@@ -1,14 +1,12 @@
 'use client'
 
 import { createClient } from '@/lib/supabase/client'
-import { useRouter } from 'next/navigation'
 
 interface SocialLoginButtonsProps {
   mode?: 'login' | 'register'
 }
 
 export function SocialLoginButtons({ mode = 'login' }: SocialLoginButtonsProps) {
-  const router = useRouter()
   const supabase = createClient()
 
   const handleSocialLogin = async (provider: 'google' | 'kakao') => {
