@@ -1,8 +1,13 @@
 {
+  "header": {
+    "browse": "Browse Assets",
+    "sell": "Sell Asset",
+    "myAccount": "My Account",
+    "login": "Login",
+    "logout": "Logout",
+    "signup": "Sign Up"
+  },
   "greeting": "Welcome to FoundMarket",
-  "login": "Login",
-  "logout": "Logout",
-  "signup": "Sign Up",
   "welcome": "Welcome back, {name}!",
   "dashboard": {
     "title": "Dashboard",

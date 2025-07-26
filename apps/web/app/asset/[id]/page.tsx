@@ -1,5 +1,5 @@
 import { notFound } from 'next/navigation'
-import Link from 'next/link'
+// import Link from 'next/link'
 import type { Asset } from '@/types'
 
 // Mock data - replace with API call

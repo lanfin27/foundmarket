@@ -1,8 +1,13 @@
 {
+  "header": {
+    "browse": "매물 둘러보기",
+    "sell": "매물 등록",
+    "myAccount": "내 계정",
+    "login": "로그인",
+    "logout": "로그아웃",
+    "signup": "회원가입"
+  },
   "greeting": "파운드마켓에 오신 것을 환영합니다",
-  "login": "로그인",
-  "logout": "로그아웃",
-  "signup": "회원가입",
   "welcome": "{name}님, 반갑습니다!",
   "dashboard": {
     "title": "대시보드",

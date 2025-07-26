@@ -21,6 +21,7 @@ const Kakao: Provider = {
       name: profile.properties?.nickname ?? profile.kakao_account?.profile?.nickname,
       email: profile.kakao_account?.email,
       image: profile.properties?.profile_image ?? profile.kakao_account?.profile?.profile_image_url,
+      role: 'user' as const,
     }
   },
   clientId: process.env.KAKAO_CLIENT_ID!,
@@ -41,6 +42,7 @@ const Naver: Provider = {
       name: profile.response.name ?? profile.response.nickname,
       email: profile.response.email,
       image: profile.response.profile_image,
+      role: 'user' as const,
     }
   },
   clientId: process.env.NAVER_CLIENT_ID!,

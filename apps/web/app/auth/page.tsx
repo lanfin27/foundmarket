@@ -1,12 +1,12 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, Suspense } from 'react'
 import { useSearchParams } from 'next/navigation'
-import { signIn } from 'next-auth/react'
-import Link from 'next/link'
+// import { signIn } from 'next-auth/react'
+// import Link from 'next/link'
 import { SocialLoginButtons } from '@/components/auth/social-login-buttons'
 
-export default function AuthPage() {
+function AuthContent() {
   const searchParams = useSearchParams()
   const [mode, setMode] = useState('login')
   const [formData, setFormData] = useState({
@@ -198,5 +198,13 @@ export default function AuthPage() {
         </form>
       </div>
     </div>
+  )
+}
+
+export default function AuthPage() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <AuthContent />
+    </Suspense>
   )
 }

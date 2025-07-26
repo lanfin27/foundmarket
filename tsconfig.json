@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@appweb/database": ["packages/database/src/index.ts"],
+      "@appweb/ui": ["packages/ui/src/index.ts"]
+    }
+  }
+}

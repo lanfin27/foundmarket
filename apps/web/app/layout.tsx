@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
-import { notFound } from 'next/navigation'
+// import { notFound } from 'next/navigation'
 import { getMessages } from 'next-intl/server'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
@@ -37,7 +37,7 @@ export default async function RootLayout({
   let messages
   try {
     messages = await getMessages()
-  } catch (error) {
+  } catch {
     // Fallback to direct import if getMessages fails
     messages = (await import(`@/src/i18n/messages/${locale}.json`)).default
   }
