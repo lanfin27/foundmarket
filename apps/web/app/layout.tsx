@@ -34,7 +34,13 @@ export default async function RootLayout({
   children: React.ReactNode
 }) {
   const locale = 'ko' // Default to Korean
-  const messages = await getMessages()
+  let messages
+  try {
+    messages = await getMessages()
+  } catch (error) {
+    // Fallback to direct import if getMessages fails
+    messages = (await import(`@/src/i18n/messages/${locale}.json`)).default
+  }
 
   return (
     <html lang={locale}>
