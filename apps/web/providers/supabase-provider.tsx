@@ -6,7 +6,7 @@ import { useRouter } from 'next/navigation'
 import type { SupabaseClient, User } from '@supabase/supabase-js'
 
 type SupabaseContext = {
-  supabase: SupabaseClient
+  supabase: SupabaseClient | null
   user: User | null
 }
 
@@ -18,10 +18,22 @@ export default function SupabaseProvider({
   children: React.ReactNode
 }) {
   const [user, setUser] = useState<User | null>(null)
-  const [supabase] = useState(() => createClient())
+  const [supabase] = useState(() => {
+    // Check if environment variables exist
+    if (!process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY) {
+      console.warn('⚠️ Supabase environment variables are not set')
+      console.log('URL:', process.env.NEXT_PUBLIC_SUPABASE_URL)
+      console.log('Key:', process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY?.slice(0, 20) + '...')
+      return null
+    }
+    console.log('✅ Initializing Supabase client')
+    return createClient()
+  })
   const router = useRouter()
 
   useEffect(() => {
+    if (!supabase) return
+
     const {
       data: { subscription },
     } = supabase.auth.onAuthStateChange((event, session) => {

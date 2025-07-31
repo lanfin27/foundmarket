@@ -1,18 +1,27 @@
 'use client'
 
-import { createClient } from '@/lib/supabase/client'
+import { useSupabase } from '@/providers/supabase-provider'
 
 interface SocialLoginButtonsProps {
   mode?: 'login' | 'register'
 }
 
 export function SocialLoginButtons({ mode = 'login' }: SocialLoginButtonsProps) {
-  const supabase = createClient()
+  const { supabase } = useSupabase()
 
   const handleSocialLogin = async (provider: 'google' | 'kakao') => {
+    console.log(`🚀 ${provider} login button clicked`)
+    
+    if (!supabase) {
+      console.error('❌ Supabase client is not initialized')
+      return
+    }
+    
+    console.log('✅ Supabase client is available, attempting OAuth...')
+    
     try {
-      const { error } = await supabase.auth.signInWithOAuth({
-        provider: provider === 'kakao' ? 'kakao' : 'google',
+      const { data, error } = await supabase.auth.signInWithOAuth({
+        provider: provider,
         options: {
           redirectTo: `${window.location.origin}/auth/callback`,
           queryParams: {
@@ -22,11 +31,15 @@ export function SocialLoginButtons({ mode = 'login' }: SocialLoginButtonsProps) 
         },
       })
       
+      console.log('🔄 OAuth response:', { data, error })
+      
       if (error) {
-        console.error('OAuth error:', error)
+        console.error('❌ OAuth error:', error)
+      } else {
+        console.log('✅ OAuth initiated successfully')
       }
     } catch (error) {
-      console.error('Social login error:', error)
+      console.error('❌ Social login error:', error)
     }
   }
   return (
